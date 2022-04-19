@@ -1,0 +1,1 @@
+DATA = r'D://Academics/Computer Vision/Project 6/StereoVision/data'
