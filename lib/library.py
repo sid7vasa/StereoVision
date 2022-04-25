@@ -6,7 +6,12 @@ import cv2 as cv
 import pickle
 from loggingCalib import get_logger
 
+import sys
+sys.path.append("../")
+import config
+
 logger = get_logger(__name__)
+
 
 def storeImages(location, grayL=None, grayR=None, calibrationImageCount=None):
     """
@@ -21,8 +26,8 @@ def storeImages(location, grayL=None, grayR=None, calibrationImageCount=None):
         logger.debug("Folder {0} not present  not present, creating the folder".format(location))
         os.makedirs(location)
     logger.info("Storing the images {0}".format(calibrationImageCount))
-    cv.imwrite(location+'/LeftImage_'+str(calibrationImageCount)+'.jpg', grayL)
-    cv.imwrite(location+'/RightImage_'+str(calibrationImageCount)+'.jpg', grayR)
+    cv.imwrite(location + '/LeftImage_' + str(calibrationImageCount) + '.jpg', grayL)
+    cv.imwrite(location + '/RightImage_' + str(calibrationImageCount) + '.jpg', grayR)
 
     return True
 
@@ -36,12 +41,14 @@ def checkChessBoard(grayL, grayR, calibrationImageCount):
     """
     criteria = (cv.TERM_CRITERIA_EPS + cv.TERM_CRITERIA_MAX_ITER, 30, 0.001)
     logger.info("Checking for chessboard corners")
-    retL, cornersL = cv.findChessboardCorners(grayL, (9, 6),  cv.CALIB_CB_ADAPTIVE_THRESH + cv.CALIB_CB_NORMALIZE_IMAGE + cv.CALIB_CB_FAST_CHECK)
-    retR, cornersR = cv.findChessboardCorners(grayR, (9, 6),  cv.CALIB_CB_ADAPTIVE_THRESH + cv.CALIB_CB_NORMALIZE_IMAGE + cv.CALIB_CB_FAST_CHECK)
+    retL, cornersL = cv.findChessboardCorners(grayL, (9, 6),
+                                              cv.CALIB_CB_ADAPTIVE_THRESH + cv.CALIB_CB_NORMALIZE_IMAGE + cv.CALIB_CB_FAST_CHECK)
+    retR, cornersR = cv.findChessboardCorners(grayR, (9, 6),
+                                              cv.CALIB_CB_ADAPTIVE_THRESH + cv.CALIB_CB_NORMALIZE_IMAGE + cv.CALIB_CB_FAST_CHECK)
     status = False
     if retL == True and retR == True:
-        corners2L = cv.cornerSubPix(grayL,cornersL, (9,6), (-1,-1), criteria)
-        corners2R = cv.cornerSubPix(grayR,cornersR, (9,6), (-1,-1), criteria)
+        corners2L = cv.cornerSubPix(grayL, cornersL, (9, 6), (-1, -1), criteria)
+        corners2R = cv.cornerSubPix(grayR, cornersR, (9, 6), (-1, -1), criteria)
         storeImages("Data", grayL, grayR, calibrationImageCount)
 
         return True, retL, corners2L, retR, corners2R
@@ -70,16 +77,15 @@ def calibrateAndStore(objPoints, grayL, grayR, imgPointsL, imgPointsR):
         logger.debug("Folder calib not present  not present, creating the folder")
         os.makedirs('calib')
 
-    with open('../calib/CameraMatrixL.pkl', 'wb') as f:
+    with open(config.CML, 'wb') as f:
         pickle.dump(mtxL, f)
-    with open('../calib/CameraMatrixR.pkl', 'wb') as f:
+    with open(config.CMR, 'wb') as f:
         pickle.dump(mtxR, f)
-    with open('../calib/CameraDistCoeffL.pkl', 'wb') as f:
+    with open(config.DCL, 'wb') as f:
         pickle.dump(distL, f)
-    with open('../calib/CameraDistCoeffR.pkl', 'wb') as f:
+    with open(config.DCR, 'wb') as f:
         pickle.dump(distR, f)
     logger.debug(mtxL)
     logger.debug(mtxR)
     logger.debug(distL)
     logger.debug(distR)
-
