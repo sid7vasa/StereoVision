@@ -1,15 +1,11 @@
-# Created library.py by histravelstories on 7:16 PM under Project6
+# Created utils.py by histravelstories on 7:16 PM under Project6
 
 
 import os
 import cv2 as cv
 import pickle
 from loggingCalib import get_logger
-
-import sys
-sys.path.append("../")
 import config
-
 logger = get_logger(__name__)
 
 

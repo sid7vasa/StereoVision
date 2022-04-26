@@ -1,8 +1,5 @@
 # Created loggingCalib.py by histravelstories on 8:36 PM under Project6
 import logging
-import sys
-
-sys.path.append("../")
 import config
 
 

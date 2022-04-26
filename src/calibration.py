@@ -3,11 +3,8 @@
 import cv2 as cv
 import numpy as np
 import config
-import sys
-sys.path.append("./lib")
-from library import checkChessBoard, calibrateAndStore
+from utils import checkChessBoard, calibrateAndStore
 from loggingCalib import get_logger
-
 
 logger = get_logger(__name__)
 
@@ -43,7 +40,7 @@ def main():
         elif operation == ord('s'):
             logger.info("Checking if corners are found")
             status, retL, cornerL, retR, cornerR = checkChessBoard(grayL, grayR, calibrationImageCount)
-            if status == True:
+            if status:
                 calibrationImageCount += 1
                 imgPointsL.append(cornerL)
                 imgPointsR.append(cornerR)
