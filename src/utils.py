@@ -45,7 +45,7 @@ def checkChessBoard(grayL, grayR, calibrationImageCount):
     if retL == True and retR == True:
         corners2L = cv.cornerSubPix(grayL, cornersL, (9, 6), (-1, -1), criteria)
         corners2R = cv.cornerSubPix(grayR, cornersR, (9, 6), (-1, -1), criteria)
-        storeImages("Data", grayL, grayR, calibrationImageCount)
+        storeImages("../"+config.DATALOC, grayL, grayR, calibrationImageCount)
 
         return True, retL, corners2L, retR, corners2R
     if retL == False:
@@ -69,17 +69,17 @@ def calibrateAndStore(objPoints, grayL, grayR, imgPointsL, imgPointsR):
     retL, mtxL, distL, rvecsL, tvecsL = cv.calibrateCamera(objPoints, imgPointsL, grayL.shape[::-1], None, None)
     retR, mtxR, distR, rvecsR, tvecsR = cv.calibrateCamera(objPoints, imgPointsR, grayR.shape[::-1], None, None)
     logger.info("Calibration Done, Storing the parameters in the pkl file")
-    if not os.path.exists('calib'):
+    if not os.path.exists("../" + config.CALIBLOC):
         logger.debug("Folder calib not present  not present, creating the folder")
-        os.makedirs('calib')
+        os.makedirs("../" + config.CALIBLOC)
 
-    with open(config.CML, 'wb') as f:
+    with open("../" + config.CML, 'wb') as f:
         pickle.dump(mtxL, f)
-    with open(config.CMR, 'wb') as f:
+    with open("../" + config.CMR, 'wb') as f:
         pickle.dump(mtxR, f)
-    with open(config.DCL, 'wb') as f:
+    with open("../" + config.DCL, 'wb') as f:
         pickle.dump(distL, f)
-    with open(config.DCR, 'wb') as f:
+    with open("../" + config.DCR, 'wb') as f:
         pickle.dump(distR, f)
     logger.debug(mtxL)
     logger.debug(mtxR)

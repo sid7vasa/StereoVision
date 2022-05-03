@@ -7,7 +7,7 @@ def get_logger(name):
     log_format = '%(asctime)s  %(name)8s  %(levelname)5s  %(message)s'
     logging.basicConfig(level=logging.DEBUG,
                         format=log_format,
-                        filename=config.CALIBLOGFILE,
+                        filename="../"+config.CALIBLOGFILE,
                         filemode='w')
     console = logging.StreamHandler()
     console.setLevel(logging.DEBUG)
