@@ -38,7 +38,7 @@ H2.npy as the mapping function and shows the disparity_map.
 ## Stereo Rectification
 ![image info](./res/Stereo_rectification.png)
 ## Disparity Map
-![image info](./res/Disparity_output_gui.png)
+![image info](./res/disparity_output_gui.png)
 ## 3D Video
 ![image info](./res/3D_out.png)
  
