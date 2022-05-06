@@ -32,7 +32,7 @@ H2.npy as the mapping function and shows the disparity_map.
 ## SIFT features
 ![image info](./res/SIFT.png)
 ## FLANN Matching
-![image info](./res/Flann.png)
+![image info](./res/FLANN.png)
 ## Epipolar lines
 ![image info](./res/Epipolar_lines.png)
 ## Stereo Rectification
