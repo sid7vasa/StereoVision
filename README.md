@@ -1,4 +1,5 @@
 # StereoVision
+Members : Santosh Vasa, Ashwin Unnikrishnan
 StereoVision - CS 5330 <br>
 Output Video : https://drive.google.com/file/d/1azJNqO1aE3_qDoztdDluYG7ZoKzPKBHz/view?usp=sharing <br>
 Stereo vision (stereopsis), which uses images from two cam-
