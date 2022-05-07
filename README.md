@@ -1,5 +1,6 @@
 # StereoVision
 StereoVision - CS 5330 <br>
+Output Video : res/disparity-map_combined.mp4 <br>
 Stereo vision (stereopsis), which uses images from two cam-
 eras to triangulate and estimate distances, is the most preva-
 lent method for depth estimation in computer vision and
