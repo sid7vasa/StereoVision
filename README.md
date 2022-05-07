@@ -2,6 +2,7 @@
 Members : Santosh Vasa, Ashwin Unnikrishnan
 StereoVision - CS 5330 <br>
 Output Video : https://drive.google.com/file/d/1azJNqO1aE3_qDoztdDluYG7ZoKzPKBHz/view?usp=sharing <br>
+Presentation : https://drive.google.com/drive/folders/1qs1g-1bnzGAeCW-CLQr7FQ9Sj0NwnsX2?usp=sharing
 #INTRODUCTION 
 Depth map data is used in a variety of applications, including object avoidance, 3D reconstruction, localization, and more. 
 This is possible with a stereo setup of two cameras. Lidars and radars can be used to create depth maps, but they are 
