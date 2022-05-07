@@ -28,6 +28,7 @@ compute epipolar lines and rectify images.
 - Running the disparity_map.py runs the stereo setup with H1.npy
 H2.npy as the mapping function and shows the disparity_map.
 - To run the 3D output, use the notebook 3D_Video.ipynb.
+- To run calibrated stereo, use the notebook SimpleStereo.ipynb.
 # Our Setup
 ![image info](./res/setup.jpeg)
 # Output Results
