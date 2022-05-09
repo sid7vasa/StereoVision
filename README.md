@@ -1,14 +1,14 @@
 # StereoVision
-Members : Santosh Vasa, Ashwin Unnikrishnan
+Members : Santosh Vasa, Ashwin Unnikrishnan <br>
 StereoVision - CS 5330 <br>
 Output Video : https://drive.google.com/file/d/1azJNqO1aE3_qDoztdDluYG7ZoKzPKBHz/view?usp=sharing <br>
-Presentation : https://drive.google.com/drive/folders/1qs1g-1bnzGAeCW-CLQr7FQ9Sj0NwnsX2?usp=sharing
-#INTRODUCTION 
+Presentation : https://drive.google.com/drive/folders/1qs1g-1bnzGAeCW-CLQr7FQ9Sj0NwnsX2?usp=sharing <br>
+# INTRODUCTION 
 Depth map data is used in a variety of applications, including object avoidance, 3D reconstruction, localization, and more. 
 This is possible with a stereo setup of two cameras. Lidars and radars can be used to create depth maps, but they are 
 expensive pieces of equipment. To retrieve different views, stereovision employs two horizontally (or arbitrarily) displaced 
 cameras. The disparity between the two image views allows us to estimate the depth of the image at each pixel location.
-#COMPUTATIONAL PERSPECTIVE: 
+# COMPUTATIONAL PERSPECTIVE: 
 - Uncalibrated Stereo: Although the intrinsic parameters of each camera are known in uncalibrated stereo setups, the 
 extrinsic parameters relative to both cameras are unknown. These extrinsic parameters are needed for the 3D –
 construction of the scene (3d point cloud). To calibrate the setup, we will need to compute the following.<br>
